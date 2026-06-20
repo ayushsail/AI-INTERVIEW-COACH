@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readFile } from "fs/promises";
 import { join } from "path";
-import pdf from "pdf-parse";
 import dbConnect from "@/lib/mongodb";
 import Resume from "@/models/Resume";
 import { parseResumeWithAI } from "@/lib/parsers/resumeParser";
+import { createRequire } from "module";
 
 export async function POST(req: NextRequest) {
   try {
+    const require = createRequire(import.meta.url);
+    const pdf = require("pdf-parse");
     const body = await req.json();
     const { resumeId } = body;
 

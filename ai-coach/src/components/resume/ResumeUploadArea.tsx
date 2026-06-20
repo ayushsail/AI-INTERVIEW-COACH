@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FileText, UploadCloud, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
-export default function ResumeUploadArea() {
+export default function ResumeUploadArea({ onUploadSuccess }: { onUploadSuccess?: (resumeId: string) => void }) {
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -66,13 +66,18 @@ export default function ResumeUploadArea() {
         body: formData,
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
         throw new Error(data.error || "Failed to upload resume.");
       }
 
       setUploadStatus("success");
       setFile(null);
+      
+      if (onUploadSuccess && data.resumeId) {
+        onUploadSuccess(data.resumeId);
+      }
     } catch (err: any) {
       console.error(err);
       setUploadStatus("error");
