@@ -93,4 +93,4 @@ This project is currently under development and has not yet been assigned a lice
 
 ---
 
-Built with ❤️ to help people crack their dream interviews.
+*Built with passion by [Ayush Sail](https://github.com/ayushsail)*
