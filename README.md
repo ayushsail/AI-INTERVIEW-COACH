@@ -93,4 +93,4 @@ This project is currently under development and has not yet been assigned a lice
 
 ---
 
-*Built with passion by [Ayush Sail](https://github.com/ayushsail)*
+*Built with passion by [Dhruv Sinha](https://github.com/dhruvsinnha10-dot), [Kartikeya Puthran](https://github.com/kartikeyaaa10) & [Ayush Sail](https://github.com/ayushsail)*
